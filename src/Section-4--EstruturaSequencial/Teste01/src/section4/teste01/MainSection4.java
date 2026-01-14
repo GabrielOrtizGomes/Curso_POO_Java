@@ -1,8 +1,12 @@
+package section4.teste01;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
+import java.util.Scanner;
 
-void main() {
+public class MainSection4 {
+    public static void main(String[] args) {
 
     //EX01:
 
@@ -87,10 +91,5 @@ void main() {
 
 
 
-
-
-
-
-
-
+    }
 }

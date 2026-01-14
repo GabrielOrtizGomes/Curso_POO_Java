@@ -1,7 +1,12 @@
+package section6.parte1;
+
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    Scanner sc = new Scanner(System.in);
+public class MainSection6Parte1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
     //EX01
     /*System.out.println("Digite a senha:");
     int senha = sc.nextInt();
@@ -61,5 +66,5 @@ void main() {
         System.out.printf("MUITO OBRIGADO%n" + "Alcool: %d%n"+ "Gasolina: %d%n"
                 + "Diesel: %d",alcoolQtd,gasolinaQtd,dieselQtd);
 
-};
-
+    }
+}

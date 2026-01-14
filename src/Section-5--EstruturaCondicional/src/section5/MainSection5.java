@@ -1,11 +1,14 @@
+package section5;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
 import java.util.Locale;
 
-void main() {
-    Locale.setDefault(Locale.US);
-    Scanner sc = new Scanner(System.in);
+public class MainSection5 {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
 
     //EX01
     /*int n = sc.nextInt();
@@ -161,4 +164,5 @@ void main() {
     }
     System.out.println(imposto);
 
+    }
 }

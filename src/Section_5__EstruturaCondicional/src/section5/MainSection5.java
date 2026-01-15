@@ -1,4 +1,4 @@
-package section5;
+package Section_5__EstruturaCondicional.src.section5;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

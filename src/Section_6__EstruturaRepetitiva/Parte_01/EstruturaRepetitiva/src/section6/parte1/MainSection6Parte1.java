@@ -1,4 +1,4 @@
-package section6.parte1;
+package Section_6__EstruturaRepetitiva.Parte_01.EstruturaRepetitiva.src.section6.parte1;
 
 import java.util.Scanner;
 

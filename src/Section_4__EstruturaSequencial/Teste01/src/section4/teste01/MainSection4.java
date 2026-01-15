@@ -1,4 +1,4 @@
-package section4.teste01;
+package Section_4__EstruturaSequencial.Teste01.src.section4.teste01;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

@@ -1,4 +1,4 @@
-package section6.parte2;
+package Section_6__EstruturaRepetitiva.Parte_02.EstruturaRepetitiva.src.section6.parte2;
 
 import java.util.ArrayList;
 import java.util.List;

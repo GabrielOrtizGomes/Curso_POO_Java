@@ -337,6 +337,47 @@ public class MainSection10 {
         System.out.printf("Número de homens = %d", peoples.length - womansCount);*/
 
 
+        //PART 02
+        //EX PENSIONATO
+
+        System.out.print("How many rooms will be rented? ");
+        int n = sc.nextInt();
+
+        Student[] rooms = new Student[10];
+        if(n >10) {
+            System.out.println("There are only 10 rooms");
+        } else {
+            for (int i= 0; i<n; i++){
+                System.out.printf("Rent #%d:%n", i+1);
+                sc.nextLine();
+                System.out.print("Name: ");
+                String name = sc.nextLine();
+                System.out.print("Email: ");
+                String email = sc.nextLine();
+                System.out.print("Room: ");
+                int numberRoom = sc.nextInt();
+                if(numberRoom<1 || numberRoom > rooms.length){
+                    System.out.println("Invalid room number. Choose between 1 and 10.");
+                    i--;
+                    continue;
+                }
+                if (rooms[numberRoom -1] == null){
+                    rooms[numberRoom -1] = new Student(name, email, numberRoom);
+                } else {
+                    System.out.printf("Room %d is already occupied%n", numberRoom);
+                    i--;
+                    continue;
+                }
+            }
+
+            System.out.println("Busy rooms:");
+            for (Student student : rooms){
+                if (student != null) {
+                    System.out.printf("%d: %s, %s%n",student.getRoom(),student.getName(), student.getEmail());
+                }
+            }
+
+        }
 
 
     }

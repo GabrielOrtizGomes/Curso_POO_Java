@@ -1,8 +1,9 @@
 package Section_10__ComportamentoMemoria_Arrays_Listas;
 
-import Section_10__ComportamentoMemoria_Arrays_Listas.Entities.People;
-import Section_10__ComportamentoMemoria_Arrays_Listas.Entities.Student;
+import Section_10__ComportamentoMemoria_Arrays_Listas.Entities.Employee;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -340,7 +341,7 @@ public class MainSection10 {
         //PART 02
         //EX PENSIONATO
 
-        System.out.print("How many rooms will be rented? ");
+        /*System.out.print("How many rooms will be rented? ");
         int n = sc.nextInt();
 
         Student[] rooms = new Student[10];
@@ -377,8 +378,43 @@ public class MainSection10 {
                 }
             }
 
+        }*/
+
+        //PART 03
+        //EX Enterprise
+
+        /*System.out.print("How many employees will be registered? ");
+        int n = sc.nextInt();
+        List<Employee> employees = new ArrayList<Employee>();
+
+        for (int i =0; i<n; i++){
+            System.out.printf("Employee #%d%n", i+1);
+            System.out.print("Id: ");
+            sc.nextLine();
+            int id = sc.nextInt();
+            System.out.print("Name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.print("Salary: ");
+            double salary= sc.nextDouble();
+
+            Employee employee = new Employee(id, name,salary);
+            employees.add(employee);
         }
 
+        System.out.print("Enter the employee id tha will have salary increase: ");
+        int idEmployee = sc.nextInt();
+        System.out.print("Enter the percentage: ");
+        double increaseSalaryPercent = sc.nextDouble();
+        employees.stream().filter(x -> x.getId() == idEmployee).findFirst().orElse(null).increaseSalary(increaseSalaryPercent);
+
+        System.out.println("List of employees:");
+        for (Employee employee : employees){
+            System.out.print(employee);
+        }*/
+
+        //PART 04
+        //EX Enterprise
 
     }
 }

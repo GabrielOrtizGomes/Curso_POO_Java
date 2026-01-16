@@ -1,9 +1,5 @@
 package Section_10__ComportamentoMemoria_Arrays_Listas;
 
-import Section_10__ComportamentoMemoria_Arrays_Listas.Entities.Employee;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -415,6 +411,63 @@ public class MainSection10 {
 
         //PART 04
         //EX Enterprise
+
+        String matrizSize = sc.nextLine();
+        String[] matrizSizeParts = matrizSize.split(" ");
+        int m = Integer.parseInt(matrizSizeParts[0]);
+        int n = Integer.parseInt(matrizSizeParts[1]);
+
+
+        int[][] matriz = new int[m][n];
+
+        for (int i = 0; i<m; i++){
+            String matrizValues = sc.nextLine();
+            String[] matrizValuesParts = matrizValues.split(" ");
+            for (int j=0; j<n;j++){
+                matriz[i][j]  = Integer.parseInt(matrizValuesParts[j]);
+            }
+        }
+
+        for (int[] value : matriz){
+            for (int v: value){
+                System.out.print(v + " ");
+            }
+            System.out.printf("%n");
+        }
+
+        int positionValue = sc.nextInt();
+        int positionValue01= 0;
+        int positionValue02 = 0;
+        boolean found = false;
+        for (int i = 0; i<m && !found; i++){
+            for (int j=0; j<n;j++){
+                if (matriz[i][j] == positionValue){
+                    positionValue01 = i;
+                    positionValue02 = j;
+                    System.out.printf("Position %d, %d%n", positionValue01, positionValue02);
+                    if (positionValue02 >0){
+                        System.out.printf("Left: %d%n", matriz[positionValue01][positionValue02-1]);
+                    }
+
+                    if(positionValue02< matriz.length){
+                        System.out.printf("Right: %d%n", matriz[positionValue01][positionValue02+1]);
+                    }
+
+                    if (positionValue01 >0){
+                        System.out.printf("Up: %d%n", matriz[positionValue01 -1][positionValue02]);
+                    }
+
+                    if(positionValue01< matriz[0].length){
+                        System.out.printf("Down: %d%n", matriz[positionValue01 +1][positionValue02]);
+                    }
+                }
+            }
+        }
+
+
+
+
+
 
     }
 }

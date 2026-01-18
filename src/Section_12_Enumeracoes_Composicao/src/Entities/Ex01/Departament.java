@@ -1,4 +1,4 @@
-package Section_12_Enumeracoes_Composicao.src.Entities;
+package Section_12_Enumeracoes_Composicao.src.Entities.Ex01;
 
 public class Departament {
     private String name;

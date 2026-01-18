@@ -1,6 +1,6 @@
-package Section_12_Enumeracoes_Composicao.src.Entities;
+package Section_12_Enumeracoes_Composicao.src.Entities.Ex01;
 
-import Section_12_Enumeracoes_Composicao.src.Entities.Enum.WorkerLevel;
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex01.Enum.WorkerLevel;
 
 import java.util.ArrayList;
 

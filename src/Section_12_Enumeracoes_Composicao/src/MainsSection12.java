@@ -1,10 +1,15 @@
 package Section_12_Enumeracoes_Composicao.src;
 
-import Section_12_Enumeracoes_Composicao.src.Entities.*;
+
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex03.Client;
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex03.Enum.OrderStatus;
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex03.Order;
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex03.OrderItem;
+import Section_12_Enumeracoes_Composicao.src.Entities.Ex03.Product;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
@@ -106,12 +111,66 @@ public class MainsSection12 {
 
         System.out.printf("%n%n%s", post03.toString());*/
 
+        //EX RESOLVIDO 03
 
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+        System.out.println("Enter client data: ");
+        System.out.print("Name: ");
+        String clientName = sc.nextLine();
+        System.out.print("Email: ");
+        String clientEmail = sc.nextLine();
+        System.out.print("Birth date (DD/MM/YYYY): ");
+        LocalDate clientBirthDate = LocalDate.parse(sc.nextLine(), fmt);
+        System.out.println("Enter order data:");
+        System.out.print("Status: ");
+        OrderStatus orderStatus = OrderStatus.valueOf(sc.nextLine());
+        Client client = new Client(clientName,clientEmail,clientBirthDate);
+        Order order = new Order(Instant.now(),orderStatus,client);
+        System.out.println("Enter 1 to add items to this order or 2 to remove them.");
+        int choice = sc.nextInt();
 
+        int n;
+        switch (choice){
+            case 1:
+                System.out.print("How many items to this order: ");
+                n = sc.nextInt();
+                for (int i = 0;i<n;i++){
+                    sc.nextLine();
+                    System.out.printf("Enter #%d item data: %n", i+1);
+                    System.out.print("Product name: ");
+                    String productName = sc.nextLine();
+                    System.out.print("Product price: ");
+                    Double productPrice = sc.nextDouble();
+                    System.out.print("Quantity: ");
+                    Integer orderItemQuantity = sc.nextInt();
 
+                    Product product = new Product(productName, productPrice);
+                    OrderItem orderItem = new OrderItem(orderItemQuantity,productPrice,product);
+                    order.addItem(orderItem);
+                }
+                client.addOrder(order);
+                break;
+            case 2:
+                System.out.print("How many items do you want to remove from this order? ");
+                n = sc.nextInt();
+                for (int i = 0;i<n;i++){
+                    sc.nextLine();
+                    System.out.printf("Enter #%d item data: ", i+1);
+                    System.out.print("Product name: ");
+                    String productName = sc.nextLine();
+                    System.out.print("Product price: ");
+                    Double productPrice = sc.nextDouble();
+                    System.out.print("Quantity: ");
+                    Integer orderItemQuantity = sc.nextInt();
 
-
+                    Product product = new Product(productName, productPrice);
+                    OrderItem orderItem = new OrderItem(orderItemQuantity,productPrice,product);
+                    order.removeItem(orderItem);
+                }
+                break;
+        }
+        System.out.println(order);
 
     }
 }

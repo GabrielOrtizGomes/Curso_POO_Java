@@ -1,12 +1,10 @@
 package Section_12_Enumeracoes_Composicao.src;
 
-import Section_12_Enumeracoes_Composicao.src.Entities.Departament;
-import Section_12_Enumeracoes_Composicao.src.Entities.Enum.WorkerLevel;
-import Section_12_Enumeracoes_Composicao.src.Entities.HourContract;
-import Section_12_Enumeracoes_Composicao.src.Entities.Worker;
+import Section_12_Enumeracoes_Composicao.src.Entities.*;
 
-import java.time.LocalDate;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
@@ -20,7 +18,7 @@ public class MainsSection12 {
 
         //EX RESOLVIDO 01
 
-        System.out.print("Enter department´s name: ");
+        /*System.out.print("Enter department´s name: ");
         String workerDepartmentsName = sc.nextLine();
         System.out.println("Enter worker data:");
         System.out.print("Name: ");
@@ -64,7 +62,56 @@ public class MainsSection12 {
 
         System.out.printf("Name: %s%n",worker.getName());
         System.out.printf("Department: %s%n", worker.getDepartament().toString());
-        System.out.printf("Income for %s: %.2f", monthCalcIncome, workerIncome);
+        System.out.printf("Income for %s: %.2f", monthCalcIncome, workerIncome);*/
+
+        //EX RESOLVIDO 02
+
+        /*DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime datePost01 = LocalDateTime.parse("21/06/2018 13:05:44",fmt);
+        Instant momentPost01 = datePost01.atZone(ZoneId.systemDefault()).toInstant();
+        String titlePost01 = "Trabeling New Zealand";
+        String contentPost01 = "I´m going to visit this wonderful country!";
+        Integer likesPost01 = 12;
+
+        Post post01 = new Post(momentPost01, titlePost01,contentPost01, likesPost01);
+        post01.addComment(new Comment("Have a nice trip"));
+        post01.addComment(new Comment("Wow that´s awesome!"));
+
+        LocalDateTime datePost02 = LocalDateTime.parse("28/07/2018 23:14:19",fmt);
+        Instant momentPost02 = datePost02.atZone(ZoneId.systemDefault()).toInstant();
+        String titlePost02 = "Good night guys";
+        String contentPost02 = "See you tomorrow";
+        Integer likesPost02 = 5;
+
+        Post post02 = new Post(momentPost02, titlePost02,contentPost02, likesPost02);
+        post02.addComment(new Comment("Good night"));
+        post02.addComment(new Comment("May the Force be with you"));
+
+
+        *//*LocalDateTime datePost02 = LocalDateTime.parse("28/07/2018 23:14:19",fmt);*//*
+        Instant momentPost03 = Instant.now();
+        String titlePost03 = "The most incredible and wonderful woman.";
+        String contentPost03 = "Minha namorada, Gio, é a mulher mais incrível e maravilhosa que eu já conheci. Tudo nela vibra: sua energia, sua força, sua beleza, seu jeito — absolutamente tudo o que a envolve. Ela me motiva e me dá a coragem de mover montanhas quando a tenho ao meu lado. Admiro profundamente a minha princesa e tenho orgulho de chamá-la de minha.";
+        Integer likesPost03 = 1;
+
+        Post post03 = new Post(momentPost03, titlePost03,contentPost03, likesPost03);
+        post03.addComment(new Comment("Te amo mais que tudo minha Ômega"));
+        post03.addComment(new Comment("Você é a minha luz"));
+
+
+        System.out.println(post01.toString());
+
+        System.out.printf("%n%n%s", post02.toString());
+
+
+        System.out.printf("%n%n%s", post03.toString());*/
+
+
+
+
+
+
+
 
     }
 }

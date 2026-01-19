@@ -1,8 +1,16 @@
 package Section_13_Heranca_Polimorfismo.src;
 
+
 import Section_13_Heranca_Polimorfismo.src.Ex01.Entities.Employee;
 import Section_13_Heranca_Polimorfismo.src.Ex01.Entities.OutsourcedEmployee;
+import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.ImportedProduct;
+import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.Product;
+import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.UsedProduct;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,8 +21,9 @@ public class MainSection13 {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        //EX01
 
-        System.out.print("Enter the number of employees: ");
+        /*System.out.print("Enter the number of employees: ");
         int n  = sc.nextInt();
         ArrayList<Employee> employees = new ArrayList<Employee>();
 
@@ -46,6 +55,46 @@ public class MainSection13 {
         System.out.println("PAYMENTS: ");
         for (Employee employee : employees){
             System.out.printf("%s - $ %.2f%n", employee.getName(),employee.payment());
+        }*/
+
+        //EX02
+        System.out.print("Enter the number of products: ");
+        int n = sc.nextInt();;
+        sc.nextLine();
+        ArrayList<Product> products = new ArrayList<Product>();
+
+        for (int i = 0; i<n;i++){
+            System.out.printf("Product #%d data:%n", i+1);
+            System.out.print("Common, used or imported (c/u/i)? ");
+            char typeProduct = sc.next().charAt(0);
+            sc.nextLine();
+            System.out.print("Name: ");
+            String productName =sc.nextLine();
+            System.out.print("Price: ");
+            Double productPrice = sc.nextDouble();
+
+            Product product;
+            if(typeProduct == 'i'){
+                System.out.print("Custom fee:");
+                Double customsFee = sc.nextDouble();
+                product = new ImportedProduct(productName, productPrice, customsFee);
+
+            } else if (typeProduct == 'u') {
+                System.out.print("Manufacture date (DD/MM/YYYY): ");
+                DateTimeFormatter  fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                sc.nextLine();
+                LocalDate date = LocalDate.parse(sc.nextLine(), fmt);
+                product = new UsedProduct(productName, productPrice, date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            } else {
+                product = new Product(productName, productPrice);
+            }
+            products.add(product);
         }
+
+        System.out.println("PRICE TAGS: ");
+        for (Product product : products){
+            System.out.println(product.priceTag());
+        }
+
     }
 }

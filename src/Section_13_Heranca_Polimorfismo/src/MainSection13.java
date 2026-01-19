@@ -6,7 +6,15 @@ import Section_13_Heranca_Polimorfismo.src.Ex01.Entities.OutsourcedEmployee;
 import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.ImportedProduct;
 import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.Product;
 import Section_13_Heranca_Polimorfismo.src.Ex02.Entities.UsedProduct;
+import Section_13_Heranca_Polimorfismo.src.Ex03_Metodos_Abstratos.Entities.Circle;
+import Section_13_Heranca_Polimorfismo.src.Ex03_Metodos_Abstratos.Entities.Enum.Color;
+import Section_13_Heranca_Polimorfismo.src.Ex03_Metodos_Abstratos.Entities.Rectangle;
+import Section_13_Heranca_Polimorfismo.src.Ex03_Metodos_Abstratos.Entities.Shape;
+import Section_13_Heranca_Polimorfismo.src.Ex04.Entities.Pessoa;
+import Section_13_Heranca_Polimorfismo.src.Ex04.Entities.PessoaFisica;
+import Section_13_Heranca_Polimorfismo.src.Ex04.Entities.PessoaJuridica;
 
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -58,7 +66,7 @@ public class MainSection13 {
         }*/
 
         //EX02
-        System.out.print("Enter the number of products: ");
+        /*System.out.print("Enter the number of products: ");
         int n = sc.nextInt();;
         sc.nextLine();
         ArrayList<Product> products = new ArrayList<Product>();
@@ -94,7 +102,83 @@ public class MainSection13 {
         System.out.println("PRICE TAGS: ");
         for (Product product : products){
             System.out.println(product.priceTag());
+        }*/
+
+        //EX03
+
+        /*System.out.print("Enter the number of shapes: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+        ArrayList<Shape> shapes = new ArrayList<Shape>();
+
+        for (int i = 0; i<n;i++){
+            System.out.printf("Shape #%d data: %n", i+1);
+            System.out.print("Rectangle or Circle (r/c)? ");
+            char typeOfShape = sc.next().toLowerCase().charAt(0);
+            sc.nextLine();
+            System.out.print("Color (BLACK/BLUE/RED): ");
+            Color color = Color.valueOf(sc.nextLine().toUpperCase());
+            Shape shape;
+
+            if(typeOfShape == 'r'){
+                System.out.print("Width: ");
+                Double width = sc.nextDouble();
+                System.out.print("Height: ");
+                Double height = sc.nextDouble();
+                shape = new Rectangle(color,width, height);
+            } else if (typeOfShape == 'c'){
+                System.out.print("Radius: ");
+                Double radius = sc.nextDouble();
+                shape = new Circle(color,radius);
+            } else {
+                System.out.println("Digite apenas r ou c");
+                i--;
+                continue;
+            }
+            shapes.add(shape);
         }
+
+        System.out.println("SHAPE AREAS: ");
+        for (Shape shape : shapes){
+            System.out.printf("%.2f",shape.area());
+        }*/
+
+        //EX04
+
+        System.out.print("Enter the number of tax payers: ");
+        int n = sc.nextInt();
+        ArrayList<Pessoa> payers = new ArrayList<Pessoa>();
+
+        for (int i = 0; i<n;i++){
+            System.out.printf("Tax payer #%d data:", i+1);
+            System.out.print("Individual or company (i/c)? ");
+            char typeOfPeople = sc.next().toLowerCase().charAt(0);
+            sc.nextLine();
+            System.out.print("Name: ");
+            String peopleName = sc.nextLine();
+            System.out.print("Anual income: ");
+            Double anualIncome = sc.nextDouble();
+            Pessoa people;
+            if (typeOfPeople == 'i'){
+                System.out.print("Health expeditures: ");
+                Double healthExpeditures = sc.nextDouble();
+                people = new PessoaFisica(peopleName, anualIncome, healthExpeditures);
+                payers.add(people);
+            } else if (typeOfPeople == 'c') {
+                System.out.print("Number of employees: ");
+                int numberOfEmployees = sc.nextInt();
+                people = new PessoaJuridica(peopleName, anualIncome, numberOfEmployees );
+                payers.add(people);
+            }
+        }
+            System.out.println("TAXES PAID: ");
+            Double totalTaxes = 0.0;
+            for (Pessoa pessoa : payers){
+                System.out.printf("%s: $ %.2f%n", pessoa.getName(), pessoa.calcImpost());
+                totalTaxes += pessoa.calcImpost();
+            }
+
+            System.out.printf("TOTAL TAXES: $ %.2f", totalTaxes);
 
     }
 }

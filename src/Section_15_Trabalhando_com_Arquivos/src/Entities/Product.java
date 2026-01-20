@@ -1,0 +1,38 @@
+package Section_15_Trabalhando_com_Arquivos.src.Entities;
+
+public class Product {
+    private String name;
+    private Double price;
+    private Integer quantity;
+
+    public Product(String name, Double price, Integer quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public Double totalPrice(){
+        return price * quantity;
+    }
+
+    public String toStringIn() {
+        return String.format("%s,%.2f,%d", name,price,quantity);
+    }
+    public String toStringOut() {
+        return String.format("%s,%.2f", name,totalPrice());
+    }
+
+
+}

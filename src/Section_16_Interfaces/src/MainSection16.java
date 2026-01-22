@@ -5,12 +5,19 @@ import Section_16_Interfaces.src.EX01.Entities.Locacao;
 import Section_16_Interfaces.src.EX01.Entities.Vehicle;
 import Section_16_Interfaces.src.EX01.Services.BrazilTaxService;
 import Section_16_Interfaces.src.EX01.Services.RentalService;
+import Section_16_Interfaces.src.EX02.Entities.Contract;
+import Section_16_Interfaces.src.EX02.Entities.Installment;
+import Section_16_Interfaces.src.EX02.Services.ContractService;
+import Section_16_Interfaces.src.EX02.Services.PayPalPaymentGateway;
+import Section_16_Interfaces.src.EX02.Services.PaymentGateway;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -41,7 +48,7 @@ public class MainSection16 {
         System.out.println(locacao);*/
 
         //Ex01 - 172 - solução com interface e desaclopação.
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        /*DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
         System.out.println("Enter rental data: ");
         System.out.print("Car model: ");
@@ -64,7 +71,31 @@ public class MainSection16 {
 
         rentalService.processInvoice(carRental);
 
-        System.out.println(carRental.getInvoiceString());
+        System.out.println(carRental.getInvoiceString());*/
+
+        //EX02
+        DateTimeFormatter dtfmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        System.out.println("Entre com os dados do contrato: ");
+        System.out.print("Número: ");
+        int contractNumber = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Data (dd/MM/yyyy): ");
+        LocalDate contractDate = LocalDate.parse(sc.nextLine(),dtfmt);
+        System.out.print("Valor do contrato: ");
+        BigDecimal contractValue = BigDecimal.valueOf(sc.nextDouble());
+        System.out.print("Entre com o número de parcelas: ");
+        int installmentCount = sc.nextInt();
+
+        Contract contract = new Contract(contractNumber,contractDate,contractValue,installmentCount);
+
+        ContractService contractService = new ContractService(new PayPalPaymentGateway());
+
+        contractService.buildInstallments(contract);
+
+        contractService.printInstallments(contract.getInstallments());
+
+
 
     }
 }
